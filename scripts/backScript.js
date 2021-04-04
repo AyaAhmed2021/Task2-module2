@@ -82,6 +82,23 @@ const server = http.createServer((req, res) => {
     else if (url === '/todos') {
         const data = JSON.stringify(todos);
         res.end(data);
+        
+    } else if (url === '/frontScript.js') {
+        page = fs.readFileSync('./frontScript.js')
+        res.end(page);
+    }
+    else if (url === '/todoList') {
+        page = fs.readFileSync('../todosList/todoList.html')
+        res.end(page);
+    }
+    else if (url === '/script.js') {
+        page = fs.readFileSync('../todosList/script/script.js')
+        res.end(page);
+    }
+    
+    else if (url === '/style.css') {
+        page = fs.readFileSync('../todosList/css/style.css')
+        res.end(page);
     }
 
 }).listen(4000)
